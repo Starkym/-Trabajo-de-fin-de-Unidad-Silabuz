@@ -1,2 +1,5 @@
-# -Trabajo-de-fin-de-Unidad-Silabuz
-Integrantes: 1) PINARES HUILLCAHUAMAN JOHAN EMERSON 2)Huaman Farfan Vladimir Alexander 3) Starky Medina Caldas
+<h2 align="center"> Trabajo de fin de Unidad Silabuz </h2>
+Integrantes: 
+<p><li>PINARES HUILLCAHUAMAN JOHAN EMERSON  <p>
+<p><li> Huaman Farfan Vladimir Alexander <p>
+<p><li> Starky Medina Caldas <p>
