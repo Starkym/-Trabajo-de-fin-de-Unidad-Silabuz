@@ -8,4 +8,4 @@ print(a+str(b))
 
 print(3+8)
 print('hola')
-c="casa"
+c="departamento"
