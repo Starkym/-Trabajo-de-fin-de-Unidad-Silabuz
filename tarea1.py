@@ -1,5 +1,7 @@
 import os
 import time
+from Tarea1.dblibros import DBLibros
+db=DBLibros
 
 #Colores
 BLACK = '\033[30m'
@@ -95,6 +97,11 @@ def crear_registro_libro():
     autores = input('Insertar autor(es): ')
 
     nuevolibro = Libro(None, titulo, genero, ISBN, editorial, autores)
+
+    if db.save_libro(nuevolibro):
+        print('Contacto insertado con éxito')
+    else:
+        print('Error al guardar el contacto')
 
 
 def run():
