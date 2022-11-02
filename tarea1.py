@@ -13,6 +13,7 @@ WHITE = '\033[37m'
 RESET = '\033[39m'
 print(RED+"------------------PROYECTO 1-----------------")
 print(MAGENTA+"INGRESE LA SOLICITUD REFERENTE A SU NUMERO DE REFERENCIA")
+
 #Print opciones
 def print_options():
     print(BLUE+"----------------- CRUD LIBROS ---------------"+RESET)
@@ -28,45 +29,6 @@ def print_options():
     print(MAGENTA+'[10] Guardar libro en archivo txt o csv')
     print(CYAN+'[11] Salir'+RESET)
     print("-" * 20)
-
-
-#Metodo opciones
-def run():
-
-    print_options()
-    command = input("Selecciona una opción:  ")
-
-    if command == '1':
-        pass
-    elif command == '2':
-        pass
-    elif command == '3':
-        crear_registro_libro()
-    elif command == '4':
-        pass
-    elif command == '5':
-        pass
-    elif command == '6':
-        pass
-    elif command == '7':
-        pass
-    elif command == '8':
-        pass
-    elif command == '9':
-        pass
-    elif command == '10':
-        pass
-    elif command == '11':
-        os._exit(1)
-
-    else:
-        print('Opcion inválida, ingrese un numero del 1 al 10')
-        time.sleep(2)
-        run()
-
-if __name__ == "__main__":
-    run()
-
 
 #Clase libro
 class Libro:
@@ -134,7 +96,7 @@ def crear_registro_libro():
 
     nuevolibro = Libro(None, titulo, genero, ISBN, editorial, autores)
 
-"""
+
 def run():
 
     print_options()
@@ -170,4 +132,3 @@ def run():
 
 if __name__ == "__main__":
     run()
-"""
