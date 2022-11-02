@@ -76,3 +76,47 @@ class Libro:
         self.__ISBN=ISBN
         self.__editorial=editorial
         self.__autores=autores
+
+ #get y set
+    #id
+    def get_id(self):
+        return self.__id
+
+    
+    def set_id(self,id):
+        self.__id = id
+
+    #titulo
+    def get_titulo(self):
+        return self.__titulo
+
+    def set_titulo(self, titulo):
+        self.__titulo = titulo
+
+    #genero
+    def get_genero(self):
+        return self.__genero
+
+    def set_genero(self, genero):
+        self.__genero = genero
+
+    #ISBN
+    def get_ISBN(self):
+        return self.__ISBN
+
+    def set_ISBN(self, ISBN):
+        self.__ISBN = ISBN
+
+    #editorial
+    def get_editorial(self):
+        return self.__editorial
+
+    def set_editorial(self, editorial):
+        self.__editorial= editorial
+
+     #editorial
+    def get_autores(self):
+        return self.__autores
+
+    def set_autores(self, autores):
+        self.__autores= autores
