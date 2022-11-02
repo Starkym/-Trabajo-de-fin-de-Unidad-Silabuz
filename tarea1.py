@@ -114,7 +114,7 @@ class Libro:
     def set_editorial(self, editorial):
         self.__editorial= editorial
 
-     #editorial
+     #autores
     def get_autores(self):
         return self.__autores
 
