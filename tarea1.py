@@ -1,7 +1,7 @@
 import os
 import time
 from Tarea1.dblibros import DBLibros
-db=DBLibros
+db=DBLibros()
 
 #Colores
 BLACK = '\033[30m'
@@ -32,6 +32,9 @@ def print_options():
     print(CYAN+'[11] Salir'+RESET)
     print("-" * 20)
 
+
+
+
 #Clase libro
 class Libro:
     def __init__(self,id:int,titulo:str,genero:str,ISBN: int,editorial:str,autores:str) -> None:
@@ -52,38 +55,48 @@ class Libro:
         self.__id = id
 
     #titulo
-    def get_titulo(self):
+    @property
+    def titulo(self):
         return self.__titulo
 
-    def set_titulo(self, titulo):
+    @titulo.setter
+    def titulo(self, titulo):
         self.__titulo = titulo
 
     #genero
-    def get_genero(self):
+    @property
+    def genero(self):
         return self.__genero
 
+    @genero.setter
     def set_genero(self, genero):
         self.__genero = genero
 
     #ISBN
-    def get_ISBN(self):
+    @property
+    def ISBN(self):
         return self.__ISBN
 
-    def set_ISBN(self, ISBN):
+    @ISBN.setter
+    def ISBN(self, ISBN):
         self.__ISBN = ISBN
 
     #editorial
-    def get_editorial(self):
+    @property
+    def editorial(self):
         return self.__editorial
 
-    def set_editorial(self, editorial):
+    @editorial.setter
+    def editorial(self, editorial):
         self.__editorial= editorial
 
      #autores
-    def get_autores(self):
+    @property
+    def autores(self):
         return self.__autores
 
-    def set_autores(self, autores):
+    @autores.setter
+    def autores(self, autores):
         self.__autores= autores
 
 
@@ -91,15 +104,15 @@ def crear_registro_libro():
     print('CREAR REGISTRO DE LIBRO')
     print('*' * 50)
     titulo = input('Insertar titulo del libro: ')
-    genero = input('Insertar genero del libro: ')
-    ISBN = input('Insertar código ISBN: ')
-    editorial = input('Insertar editorial: ')
+    genero = input('Insertar genero del libro: ' )
+    ISBN = input('Insertar código ISBN: ' )
+    editorial = input('Insertar editorial: ' )
     autores = input('Insertar autor(es): ')
 
     nuevolibro = Libro(None, titulo, genero, ISBN, editorial, autores)
 
     if db.save_libro(nuevolibro):
-        print('Contacto insertado con éxito')
+        print('Libro insertado con éxito')
     else:
         print('Error al guardar el contacto')
 
