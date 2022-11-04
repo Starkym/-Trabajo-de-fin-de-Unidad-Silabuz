@@ -78,9 +78,9 @@ class Libro:
         self.__autores = autores
 
 libros=[] # para corregir
-f= open("Registros Libros.csv","a")
-#f.write("ID, Título, Género, ISBN, Editorial, Autor(es)")
-
+f= open("Registros Libros.csv","w")
+f.write("ID, Título, Género, ISBN, Editorial, Autor(es)\n")
+f.close()
 
 def archivocsv(data):
     with open("Registros Libros.csv",'a', newline='') as ar:
@@ -97,7 +97,7 @@ def repetir_opciones():
 biblioteca = list()
 
 def listar_libros():
-    print('[ID, Título, Género, ISBN, Editorial, Autor(es)]')
+    #print('[ID, Título, Género, ISBN, Editorial, Autor(es)]')
     with open("Registros Libros.csv",'r') as ar:
         reader = csv.reader(ar)
         #next(reader)
@@ -110,7 +110,7 @@ def listar_libros():
 def crear_registro_libro():
     with open("Registros Libros.csv",'r') as ar:
         reader = csv.reader(ar)
-        #header next(reader)
+        next(reader)
         count=0
         for row in reader:
             count +=1
@@ -198,6 +198,8 @@ def ordenar_libros():
         #lista_ordenada.pop(0)
         #lista_ordenada.sort()
         #print(f"Lista ordenada: {lista_ordenada}")
+
+    repetir_opciones()
 
 
 
