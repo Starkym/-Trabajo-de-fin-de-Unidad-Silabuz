@@ -2,7 +2,7 @@ import os
 import time
 import csv
 
-#Colores
+
 BLACK = '\033[30m'
 RED = '\033[31m'
 GREEN = '\033[32m'
@@ -15,7 +15,6 @@ RESET = '\033[39m'
 print(RED+"------------------PROYECTO 1-----------------")
 print(MAGENTA+"INGRESE LA SOLICITUD REFERENTE A SU NUMERO DE REFERENCIA")
 
-#Print opciones
 def print_options():
     print(BLUE+"----------------- CRUD LIBROS ---------------"+RESET)
     print(YELLOW+'[1] Leer archivo txt o csv (max 3)')
@@ -31,81 +30,52 @@ def print_options():
     print(CYAN+'[11] Salir'+RESET)
     print("-" * 20)
 
-
-
-#Clase libro
 class Libro:
-    def __init__(self,id:int,titulo:str,genero:str,ISBN: int,editorial:str,autores:str) -> None:
-        self.__id=id
-        self.__titulo=titulo
-        self.__genero=genero
-        self.__ISBN=ISBN
-        self.__editorial=editorial
-        self.__autores=autores
+    def __init__(self, id, titulo, genero, ISBN, editorial, autores):
+        self.__id = id
+        self.__titulo = titulo
+        self.__genero = genero
+        self.__ISBN = ISBN
+        self.__editorial = editorial
+        self.__autores = autores
 
-#get y set
-    #id
     def get_id(self):
         return self.__id
 
-    
-    def set_id(self,id):
+    def set_id(self, id:int):
         self.__id = id
 
-    #titulo
-    @property
-    def titulo(self):
+
+    def get_titulo(self):
         return self.__titulo
 
-    @titulo.setter
-    def titulo(self, titulo):
+
+    def set_titulo(self, titulo: str):
         self.__titulo = titulo
 
-    #genero
-    @property
-    def genero(self):
+    def get_genero(self):
         return self.__genero
 
-    @genero.setter
-    def set_genero(self, genero):
+    def set_genero(self, genero:str):
         self.__genero = genero
 
-    #ISBN
-    @property
-    def ISBN(self):
+    def get_ISBN(self):
         return self.__ISBN
 
-    @ISBN.setter
-    def ISBN(self, ISBN):
+    def set_ISBN(self, ISBN:str):
         self.__ISBN = ISBN
 
-    #editorial
-    @property
-    def editorial(self):
+    def get_editorial(self):
         return self.__editorial
 
-    @editorial.setter
-    def editorial(self, editorial):
-        self.__editorial= editorial
+    def set_editorial(self, editorial:str):
+        self.__editorial = editorial
 
-     #autores
-    @property
-    def autores(self):
+    def get_autores(self):
         return self.__autores
 
-    @autores.setter
-    def autores(self, autores):
-        self.__autores= autores
-
-
-
-
-
-
-
-
-
-
+    def set_autores(self, autores:str):
+        self.__autores = autores
 
 
 
@@ -144,9 +114,9 @@ def run():
     elif command == '4':
         pass
     elif command == '5':
-        pass
+        #buscar_libro_isbn()
     elif command == '6':
-        ordenar_libros()
+        #ordenar_libros()
     elif command == '7':
         pass
     elif command == '8':
