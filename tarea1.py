@@ -42,3 +42,126 @@ class Libro:
         self.__ISBN=ISBN
         self.__editorial=editorial
         self.__autores=autores
+
+#get y set
+    #id
+    def get_id(self):
+        return self.__id
+
+    
+    def set_id(self,id):
+        self.__id = id
+
+    #titulo
+    @property
+    def titulo(self):
+        return self.__titulo
+
+    @titulo.setter
+    def titulo(self, titulo):
+        self.__titulo = titulo
+
+    #genero
+    @property
+    def genero(self):
+        return self.__genero
+
+    @genero.setter
+    def set_genero(self, genero):
+        self.__genero = genero
+
+    #ISBN
+    @property
+    def ISBN(self):
+        return self.__ISBN
+
+    @ISBN.setter
+    def ISBN(self, ISBN):
+        self.__ISBN = ISBN
+
+    #editorial
+    @property
+    def editorial(self):
+        return self.__editorial
+
+    @editorial.setter
+    def editorial(self, editorial):
+        self.__editorial= editorial
+
+     #autores
+    @property
+    def autores(self):
+        return self.__autores
+
+    @autores.setter
+    def autores(self, autores):
+        self.__autores= autores
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def run():
+
+    print_options()
+    command = input("Selecciona una opción:  ")
+
+    if command == '1':
+        pass
+    elif command == '2':
+        listar_libros()
+    elif command == '3':
+        crear_registro_libro()
+    elif command == '4':
+        pass
+    elif command == '5':
+        pass
+    elif command == '6':
+        ordenar_libros()
+    elif command == '7':
+        pass
+    elif command == '8':
+        pass
+    elif command == '9':
+        pass
+    elif command == '10':
+        pass
+    elif command == '11':
+        os._exit(1)
+
+    else:
+        print('Opcion inválida, ingrese un numero del 1 al 10')
+        time.sleep(2)
+        run()
+
+if __name__ == "__main__":
+    run()
