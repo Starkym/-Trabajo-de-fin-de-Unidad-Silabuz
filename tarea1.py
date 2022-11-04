@@ -77,7 +77,71 @@ class Libro:
     def set_autores(self, autores:str):
         self.__autores = autores
 
+libros=[] # para corregir
+f= open("Registros Libros.csv","a")
+#f.write("ID, Título, Género, ISBN, Editorial, Autor(es)")
 
+
+def archivocsv(data):
+    with open("Registros Libros.csv",'a', newline='') as ar:
+        writer=csv.writer(ar)
+        writer.writerow(data)
+    
+def repetir_opciones():
+    dato = input("\nRegresar al menu? si o no: ").lower()
+    if dato == 'si':
+        run()
+    else:
+        os._exit(0)
+        
+biblioteca = list()
+
+def listar_libros():
+    print('[ID, Título, Género, ISBN, Editorial, Autor(es)]')
+    with open("Registros Libros.csv",'r') as ar:
+        reader = csv.reader(ar)
+        #next(reader)
+        for row in reader:
+            #if row in list
+            print(row)
+
+    repetir_opciones()
+
+def crear_registro_libro():
+    with open("Registros Libros.csv",'r') as ar:
+        reader = csv.reader(ar)
+        #header next(reader)
+        count=0
+        for row in reader:
+            count +=1
+    libronuevo=[]
+    print('CREAR REGISTRO DE LIBRO')
+    print('*' * 50)
+    id = count+1
+    titulo = input('Insertar titulo del libro: ').title()
+    genero = input('Insertar genero del libro: ').title()
+    ISBN = input('Insertar código ISBN: ').title()
+    editorial = input('Insertar editorial: ').title()
+    autores = input('Insertar autor(es): ').title()
+
+    libro = Libro(id, titulo, genero, ISBN, editorial, autores)
+
+    libronuevo.append(libro.get_id())
+    libronuevo.append(libro.get_titulo())
+    libronuevo.append(libro.get_genero())
+    libronuevo.append(libro.get_ISBN())
+    libronuevo.append(libro.get_editorial())
+    libronuevo.append(libro.get_autores())
+
+    #print(libronuevo) #
+    #libros.append(libronuevo) #
+    #print(libros) #
+
+    print("Se agregó el libro de forma correcta.")
+
+    archivocsv(libronuevo)
+
+    repetir_opciones()
 
 
 
@@ -115,8 +179,10 @@ def run():
         pass
     elif command == '5':
         #buscar_libro_isbn()
+        pass
     elif command == '6':
         #ordenar_libros()
+        pass
     elif command == '7':
         pass
     elif command == '8':
