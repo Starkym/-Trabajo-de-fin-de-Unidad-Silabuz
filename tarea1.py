@@ -146,21 +146,58 @@ def crear_registro_libro():
 
 
 
+"""#Opcion5    ----------- En produccion
+def buscar_libro_isbn():
+    with open('Registros Libros.csv') as csvfile:
+        reader = csv.DictReader(csvfile)
+        titulo = input("Ingresa un titulo: ")
+        for row in reader:
+            titulo= row['Titulo']
+        print(titulo)
+        #a = print(row['Titulo'])
+        #sorted(a.items())
+"""
 
+#Opcion6
+def ordenar_libros():
+    lista_id = []
+    lista_titulo = []
+    lista_genero = []
+    lista_ISBN = []
+    lista_editorial = []
+    lista_autores = []
+    print(BLUE+"Ordenado por titulo: "+RESET )
+    with open("Registros Libros.csv",'r') as ar:
+        lista_ordenada = []
+        reader = csv.reader(ar)
+        for i in reader:
+            id,titulo,genero,ISBN,editorial,autores,*a = i
+            #lista_id.append(id)
+            lista_titulo.append(titulo)
+            #lista_genero.append(titulo)
+            #lista_ISBN.append(titulo)
+            #lista_editorial.append(titulo)
+            #lista_autores.append(titulo)
+        #comienzo indice1
+        #lista_id.pop(0)
+        lista_titulo.pop(0)
+        #lista_genero.pop(0)
+        #lista_ISBN.pop(0)
+        #lista_editorial.pop(0)
+        #lista_autores.pop(0)
+        #lista_titulo_ordenada
+        lista_titulo.sort()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        #agrupacion de listas
+        #lista_ordenada = zip(lista_titulo)
+        for count,valor in enumerate(zip(lista_titulo), start=1):
+            print(count," - ",  *valor)
+        #print(f"- {i}") 
+            #_, titulo,_,_,*a = i
+            #lista_ordenada.append(titulo)
+        #lista_ordenada.pop(0)
+        #lista_ordenada.sort()
+        #print(f"Lista ordenada: {lista_ordenada}")
 
 
 
@@ -178,10 +215,10 @@ def run():
     elif command == '4':
         pass
     elif command == '5':
-        #buscar_libro_isbn()
+        buscar_libro_isbn()
         pass
     elif command == '6':
-        #ordenar_libros()
+        ordenar_libros()
         pass
     elif command == '7':
         pass
