@@ -201,7 +201,14 @@ def ordenar_libros():
 
     repetir_opciones()
 
-
+def eliminar(self):
+    codigo = input("INSERTE EL CODIGO QUE DESEA ELIMINAR :")
+    for index in range(len(self.__cod)):
+        if codigo == self.__cod[index][0]:
+            index_flag = index 
+            self.self.__cod = self.self.__cod[:index_flag] + self.self.__cod[index_flag+1:]
+            self.self.__code.sort(key=lambda x: x[3]) 
+    repetir_opciones()         
 
 def run():
 
@@ -209,13 +216,22 @@ def run():
     command = input("Selecciona una opción:  ")
 
     if command == '1':
-        pass
+        f = open("Registros Libros.csv", "r")
+        line= 4
+        for x in range(line):
+            a = f.readline()
+            print(a)
+        # with open("Registros Libros,csv","r") as archivo:
+        #      for i in range(4):
+        #          line = next(archivo).strip()
+        #          print(line)
+        repetir_opciones()         
     elif command == '2':
         listar_libros()
     elif command == '3':
         crear_registro_libro()
     elif command == '4':
-        pass
+        eliminar()
     elif command == '5':
         buscar_libro_isbn()
         pass
