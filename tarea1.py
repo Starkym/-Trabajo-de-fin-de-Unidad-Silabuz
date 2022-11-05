@@ -229,6 +229,54 @@ def ordenar_libros():
 
     repetir_opciones()
 
+#Opcion7
+#Buscar libros por autor, editorial o género. 
+# Se deben sugerir las opciones y listar los resultados.
+def buscarlibrosxautorxeditxgenero():
+    print("1) Autor\n2) Editorial\n3) Genero")
+    opcion = input("Elige una opcion:  ")
+
+    if opcion == '1':
+        autorx = input('Ingresar el AUTOR del libro: ')
+        with open("Registros Libros.csv",'r') as ar:
+            reader = csv.reader(ar)
+            data=[line for line in reader]
+            for row in data:
+                if row[5]==autorx:
+                    data.append(row)
+                    print(f"AUTOR: {autorx}")
+                    print("\nLibro:")
+                    print(*row)
+                    break;
+                
+    if opcion == '2':
+        editorialx=input('Ingresar la EDITORIAL del libro: ')
+        with open("Registros Libros.csv",'r') as ar:
+            reader = csv.reader(ar)
+            data=[line for line in reader]
+            for row in data:
+                if row[4]==editorialx:
+                    data.append(row)
+                    print(f"EDITORIAL: {editorialx}")
+                    print("\nLibro:")
+                    print(*row)
+                    break;
+
+    if opcion == '3':
+        generox=input('Ingresar el GENERO del libro: ')
+        with open("Registros Libros.csv",'r') as ar:
+            reader = csv.reader(ar)
+            data=[line for line in reader]
+            for row in data:
+                if row[2]==generox:
+                    data.append(row)
+                    print(f"GENERO: {generox}")
+                    print("\nLibro:")
+                    print(*row)
+                    break;
+    repetir_opciones()   
+   
+
 def eliminar(self):
     codigo = input("INSERTE EL CODIGO QUE DESEA ELIMINAR :")
     for index in range(len(self.__cod)):
@@ -311,13 +359,12 @@ def run():
     elif command == '4':
         eliminar()
     elif command == '5':
-        #buscar_libro_isbn()
         buscar_libroxisbn()
     elif command == '6':
         ordenar_libros()
         pass
     elif command == '7':
-        pass
+        buscarlibrosxautorxeditxgenero()
     elif command == '8':
         pass
     elif command == '9':
