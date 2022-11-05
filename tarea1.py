@@ -257,17 +257,13 @@ def guardar_archivo():
     with open("Registros Libros.csv",'r') as ar:
         reader = csv.reader(ar)
         data=[line for line in reader]
-        data2=['1','2','3']
-    namefile=input('Digite el nombre del archivo a guardar (ejemplo: libros.txt o libros.csv''): ' )
+        namefile=input('Digite el nombre del archivo a guardar (ejemplo: libros.txt o libros.csv''): ' )
     with open(namefile, 'w') as f:
         f.write("ID, Título, Género, ISBN, Editorial, Autor(es)\n")
         for list in data:
             f.write("\n")
-            for row in list:
-                f.writelines(row)
-                #f.write(str(row)+",")
-
-
+            f.write(','.join(list))
+            
     repetir_opciones() 
 
 def run():
