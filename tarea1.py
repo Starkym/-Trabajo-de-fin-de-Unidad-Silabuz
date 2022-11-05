@@ -150,19 +150,41 @@ def crear_registro_libro():
     repetir_opciones()
 
 
+#Opcion5
+def buscar_libroxisbn():
+    print("1) ISBN\n2) Titulo")
+    opcion = input("Elige una opcion:  ")
+
+    if opcion == '1':
+        isbnx = input('Ingresar el ISBN del libro: ')
+        with open("Registros Libros.csv",'r') as ar:
+            reader = csv.reader(ar)
+            data=[line for line in reader]
+            for row in data:
+                if row[3]==isbnx:
+                    data.append(row)
+                    print(f"ISBN: {isbnx}")
+                    print("\nLibro:")
+                    print(*row)
+                    break;
+                
+    if opcion == '2':
+        titulox=input('Ingresar el Titulo del libro: ')
+        with open("Registros Libros.csv",'r') as ar:
+            reader = csv.reader(ar)
+            data=[line for line in reader]
+            for row in data:
+                if row[1]==titulox:
+                    data.append(row)
+                    print(f"Titulo: {titulox}")
+                    print("\nLibro:")
+                    print(*row)
+                    break;
+                    #print(f"\nTitulo: {titulox}\n")
+                    #print(*row)
+                    #break;
 
 
-"""#Opcion5    ----------- En produccion
-def buscar_libro_isbn():
-    with open('Registros Libros.csv') as csvfile:
-        reader = csv.DictReader(csvfile)
-        titulo = input("Ingresa un titulo: ")
-        for row in reader:
-            titulo= row['Titulo']
-        print(titulo)
-        #a = print(row['Titulo'])
-        #sorted(a.items())
-"""
 
 #Opcion6
 def ordenar_libros():
@@ -290,7 +312,7 @@ def run():
         eliminar()
     elif command == '5':
         #buscar_libro_isbn()
-        pass
+        buscar_libroxisbn()
     elif command == '6':
         ordenar_libros()
         pass
