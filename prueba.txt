@@ -1,0 +1,6 @@
+ID, Título, Género, ISBN, Editorial, Autor(es)
+
+1VladimirAlexanderHuaman Farfan12E23
+2CarlosPerez987654321AlvelaAnonimo
+3MariaEugeniaSalesJejeKcbl
+4MarcoSales214214ArroFuentes

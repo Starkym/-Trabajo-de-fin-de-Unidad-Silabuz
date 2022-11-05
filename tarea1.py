@@ -214,7 +214,61 @@ def eliminar(self):
             index_flag = index 
             self.self.__cod = self.self.__cod[:index_flag] + self.self.__cod[index_flag+1:]
             self.self.__code.sort(key=lambda x: x[3]) 
-    repetir_opciones()         
+    repetir_opciones()    
+
+def actualizar_libro():
+    id2=input('ingresar el ID del libro a actualizar: ')
+    with open("Registros Libros.csv",'r') as ar:
+        reader = csv.reader(ar)
+        data=[line for line in reader]
+        for row in data:
+            if row[0]==id2:
+                data.remove(row)
+        titulo = input('Insertar titulo del libro: ').title()
+        genero = input('Insertar genero del libro: ').title()
+        ISBN = input('Insertar código ISBN: ').title()
+        editorial = input('Insertar editorial: ').title()
+        autores = input('Insertar autor(es): ').title()
+        libronuevo=[]
+
+        libro = Libro(id2, titulo, genero, ISBN, editorial, autores)
+
+        libronuevo.append(libro.get_id())
+        libronuevo.append(libro.get_titulo())
+        libronuevo.append(libro.get_genero())
+        libronuevo.append(libro.get_ISBN())
+        libronuevo.append(libro.get_editorial())
+        libronuevo.append(libro.get_autores())
+        data.append(libronuevo)
+        data.sort()
+
+    with open("Registros Libros.csv",'w', newline='') as ar:
+        w=csv.writer(ar)
+        w.writerows(data)
+
+        #print(data)
+        #next(reader)
+
+    print("Se ha modificado el libro de ID " + id2 + " correctamente")
+
+    repetir_opciones() 
+
+def guardar_archivo():
+    with open("Registros Libros.csv",'r') as ar:
+        reader = csv.reader(ar)
+        data=[line for line in reader]
+        data2=['1','2','3']
+    namefile=input('Digite el nombre del archivo a guardar (ejemplo: libros.txt o libros.csv''): ' )
+    with open(namefile, 'w') as f:
+        f.write("ID, Título, Género, ISBN, Editorial, Autor(es)\n")
+        for list in data:
+            f.write("\n")
+            for row in list:
+                f.writelines(row)
+                #f.write(str(row)+",")
+
+
+    repetir_opciones() 
 
 def run():
 
@@ -239,7 +293,7 @@ def run():
     elif command == '4':
         eliminar()
     elif command == '5':
-        buscar_libro_isbn()
+        #buscar_libro_isbn()
         pass
     elif command == '6':
         ordenar_libros()
@@ -249,9 +303,11 @@ def run():
     elif command == '8':
         pass
     elif command == '9':
-        pass
+        actualizar_libro()
+        #pass
     elif command == '10':
-        pass
+        guardar_archivo()
+        #pass
     elif command == '11':
         os._exit(1)
 
