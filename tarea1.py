@@ -78,10 +78,16 @@ class Libro:
         self.__autores = autores
 
 libros=[] # para corregir
-f= open("Registros Libros.csv","w")
-f.write("ID, Título, Género, ISBN, Editorial, Autor(es)\n")
-f.close()
-
+f= open("Registros Libros.csv","a")
+"""
+f1= open("Registros Libros.csv","r")
+for linea in f1:
+    if len(linea)>0:
+        pass
+    else:
+        f.write("ID, Título, Género, ISBN, Editorial, Autor(es)\n")
+        f.close()
+"""
 def archivocsv(data):
     with open("Registros Libros.csv",'a', newline='') as ar:
         writer=csv.writer(ar)
@@ -97,7 +103,7 @@ def repetir_opciones():
 biblioteca = list()
 
 def listar_libros():
-    #print('[ID, Título, Género, ISBN, Editorial, Autor(es)]')
+    print('[ID, Título, Género, ISBN, Editorial, Autor(es)]')
     with open("Registros Libros.csv",'r') as ar:
         reader = csv.reader(ar)
         #next(reader)
@@ -110,7 +116,7 @@ def listar_libros():
 def crear_registro_libro():
     with open("Registros Libros.csv",'r') as ar:
         reader = csv.reader(ar)
-        next(reader)
+        #next(reader)
         count=0
         for row in reader:
             count +=1
@@ -180,7 +186,7 @@ def ordenar_libros():
             #lista_autores.append(titulo)
         #comienzo indice1
         #lista_id.pop(0)
-        lista_titulo.pop(0)
+        #lista_titulo.pop(0)
         #lista_genero.pop(0)
         #lista_ISBN.pop(0)
         #lista_editorial.pop(0)
@@ -201,7 +207,14 @@ def ordenar_libros():
 
     repetir_opciones()
 
-
+def eliminar(self):
+    codigo = input("INSERTE EL CODIGO QUE DESEA ELIMINAR :")
+    for index in range(len(self.__cod)):
+        if codigo == self.__cod[index][0]:
+            index_flag = index 
+            self.self.__cod = self.self.__cod[:index_flag] + self.self.__cod[index_flag+1:]
+            self.self.__code.sort(key=lambda x: x[3]) 
+    repetir_opciones()         
 
 def run():
 
@@ -209,13 +222,22 @@ def run():
     command = input("Selecciona una opción:  ")
 
     if command == '1':
-        pass
+        f = open("Registros Libros.csv", "r")
+        line= 4
+        for x in range(line):
+            a = f.readline()
+            print(a)
+        # with open("Registros Libros,csv","r") as archivo:
+        #      for i in range(4):
+        #          line = next(archivo).strip()
+        #          print(line)
+        repetir_opciones()         
     elif command == '2':
         listar_libros()
     elif command == '3':
         crear_registro_libro()
     elif command == '4':
-        pass
+        eliminar()
     elif command == '5':
         buscar_libro_isbn()
         pass
