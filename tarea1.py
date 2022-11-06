@@ -12,22 +12,24 @@ MAGENTA = '\033[35m'
 CYAN = '\033[36m'
 WHITE = '\033[37m'
 RESET = '\033[39m'
-print(RED+"------------------PROYECTO 1-----------------")
-print(MAGENTA+"INGRESE LA SOLICITUD REFERENTE A SU NUMERO DE REFERENCIA")
+
+
+print(RED +"------------------PROYECTO 1------------------")
+print(MAGENTA +"INGRESE LA SOLICITUD REFERENTE A SU NUMERO DE REFERENCIA")
 
 def print_options():
-    print(BLUE+"----------------- CRUD LIBROS ---------------"+RESET)
-    print(YELLOW+'[1] Leer archivo txt o csv (max 3)')
-    print(MAGENTA+'[2] Listar libros')
-    print(RED+'[3] Agregar Libro')
-    print(CYAN+'[4] Eliminar Libro')
-    print(WHITE+'[5] Buscar por ISBN o titulo')
-    print(GREEN+'[6] Ordenar libros por titulo')
-    print(BLUE+'[7] Buscar por autor, editorial o genero')
-    print(YELLOW+'[8] Buscar por numero de autores')
-    print(RED+'[9] Editar o actualizar libro')
-    print(MAGENTA+'[10] Guardar libro en archivo txt o csv')
-    print(CYAN+'[11] Salir'+RESET)
+    print(BLUE +"----------------- CRUD LIBROS ---------------"+RESET)
+    print(YELLOW +'[1] Leer archivo txt o csv (max 3)')
+    print(MAGENTA +'[2] Listar libros')
+    print(RED +'[3] Agregar Libro')
+    print(CYAN +'[4] Eliminar Libro')
+    print(WHITE +'[5] Buscar por ISBN o titulo')
+    print(GREEN +'[6] Ordenar libros por titulo')
+    print(BLUE +'[7] Buscar por autor, editorial o genero')
+    print(YELLOW +'[8] Buscar por numero de autores')
+    print(RED +'[9] Editar o actualizar libro')
+    print(MAGENTA +'[10] Guardar libro en archivo txt o csv')
+    print(CYAN +'[11] Salir'+RESET)
     print("-" * 20)
 
 class Libro:
@@ -277,14 +279,7 @@ def buscarlibrosxautorxeditxgenero():
     repetir_opciones()   
    
 
-def eliminar(self):
-    codigo = input("INSERTE EL CODIGO QUE DESEA ELIMINAR :")
-    for index in range(len(self.__cod)):
-        if codigo == self.__cod[index][0]:
-            index_flag = index 
-            self.self.__cod = self.self.__cod[:index_flag] + self.self.__cod[index_flag+1:]
-            self.self.__code.sort(key=lambda x: x[3]) 
-    repetir_opciones()    
+
 
 def actualizar_libro():
     id2=input('ingresar el ID del libro a actualizar: ')
@@ -342,22 +337,43 @@ def run():
     command = input("Selecciona una opción:  ")
 
     if command == '1':
-        f = open("Registros Libros.csv", "r")
-        line= 4
-        for x in range(line):
-            a = f.readline()
-            print(a)
-        # with open("Registros Libros,csv","r") as archivo:
-        #      for i in range(4):
-        #          line = next(archivo).strip()
-        #          print(line)
+        print("¿ QUE DESEA REALIZAR ?")
+        pedido=int(input("ESCRIBE 1 SI DESEA CARGAR ARCHIVO CSV "))            
+        if pedido==1:
+            f = open("Registros Libros.csv", "r")
+            line= 3
+            for x in range(line):
+                a = f.readline()
+                print(a)                                                          
+        else:
+            print("INGRESE UNA OPCION VALIDA")  
         repetir_opciones()         
     elif command == '2':
         listar_libros()
     elif command == '3':
         crear_registro_libro()
     elif command == '4':
-        eliminar()
+        try:
+            
+            with open("Registros Libros.csv") as file:
+                newFile = csv.reader(file)
+                data = [i for i in newFile]
+            
+            with open("Registros Libros.csv", "w", newline='') as file:
+                Id = input("\n SELECCIONE EL ID QUE DESEA ELIMINAR (EL ID ESTA EN RANGO DE NUMEROS DE 1 A MAS): ").upper()
+                new = csv.writer(file)
+                for r in data:
+                    for c in r:
+                        if c != Id:
+                            new.writerow(r) 
+                        break
+                file.close()
+        except:
+            print("\nNo Hay datos en el csv.")
+        else:
+            print("\nEliminado correctamente.")
+            repetir_opciones() 
+
     elif command == '5':
         buscar_libroxisbn()
     elif command == '6':
