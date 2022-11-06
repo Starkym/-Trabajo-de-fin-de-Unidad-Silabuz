@@ -63,7 +63,7 @@ def listar_x_habitat():
     dato = resp.json()
     print("------ Lista de pokemones por habitat ---------")
     for cont,i in enumerate(dato['pokemon_species'],start=1):
-        print(cont,"Pokemon: -> ",i['name'],"-> Url: -> ",i['url'])
+        print(cont,"Pokemon: -> ",i['name'],"-> URL: -> ",i['url'])
     menu_back()
 
 
