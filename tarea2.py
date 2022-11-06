@@ -34,7 +34,7 @@ def listar_x_forma():
 
     print("------ Lista de pokemones por forma ---------")
     for cont,i in enumerate(dato['pokemon_species'],start=1):
-        print(cont,"Pokemon: -> ",i['name'])
+        print(cont,"Pokemon: -> ",i['name'],"-> Url: -> ",i['url'])
     menu_back()
 
 #Opción 3: Listar pokemons por habilidad
@@ -49,7 +49,7 @@ def listar_x_habilidad():
     dato = resp.json()
     print("------ Lista de pokemones por habilidad ---------")
     for cont,i in enumerate(dato['pokemon'],start=1):
-        print(cont,"Pokemon: -> ",i['pokemon']['name'])
+        print(cont,"Pokemon: -> ",i['pokemon']['name'],"-> URL: ->",i['pokemon']['url'])
     menu_back()
 
 #Opción 4: Listar pokemons por habitat.
@@ -63,7 +63,7 @@ def listar_x_habitat():
     dato = resp.json()
     print("------ Lista de pokemones por habitat ---------")
     for cont,i in enumerate(dato['pokemon_species'],start=1):
-        print(cont,"Pokemon: -> ",i['name'])
+        print(cont,"Pokemon: -> ",i['name'],"-> Url: -> ",i['url'])
     menu_back()
 
 
@@ -78,7 +78,7 @@ def listar_x_tipo():
     dato = resp.json()
     print("------ Lista de pokemones por tipo ---------")
     for cont,i in enumerate(dato['pokemon'],start=1):
-        print(cont," Pokemon: -> ",i['pokemon']['name'])
+        print(cont," Pokemon: -> ",i['pokemon']['name'],"-> URL: ->",i['pokemon']['url'])
     menu_back()
 
 
