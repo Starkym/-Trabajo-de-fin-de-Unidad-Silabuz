@@ -1,4 +1,6 @@
-from pip._vendor import requests
+import requests
+import os
+
 BLACK = '\033[30m'
 RED = '\033[31m'
 GREEN = '\033[32m'
@@ -8,6 +10,77 @@ MAGENTA = '\033[35m'
 CYAN = '\033[36m'
 WHITE = '\033[37m'
 RESET = '\033[39m'
+
+
+def menu_back():
+    print("Desea regresar al menu? ")
+    print("1) Si \n2) No")
+    command = input("Elige la opcion (1 o 2): ")
+    if command == '1':
+        menu()
+    else:
+        os._exit(1)
+
+#Opción 2: Listar pokemons por forma
+def listar_x_forma():
+    print("Lista de algunas formas de pokemones: ")
+    print("- ball\n- fish\n- legs\n- wings")
+    print("En total: 14 formas de pokemones")
+
+    forma = input("Ingresa la forma del pokemon: ")
+    pokemon = f"https://pokeapi.co/api/v2/pokemon-shape/{forma}"
+    resp = requests.get(pokemon)
+    dato = resp.json()
+
+    print("------ Lista de pokemones por forma ---------")
+    for cont,i in enumerate(dato['pokemon_species'],start=1):
+        print(cont,"Pokemon: -> ",i['name'])
+    menu_back()
+
+#Opción 3: Listar pokemons por habilidad
+def listar_x_habilidad():
+    print("Lista de algunas habilidades de pokemones: ")
+    print("- stench\n- drizzle\n- speed-boost\n- limber")
+    print("En total: 327 habilidades de pokemones")
+
+    habilidad = input("Ingresa la habilidad del pokemon: ")
+    pokemon = f"https://pokeapi.co/api/v2/ability/{habilidad}"
+    resp = requests.get(pokemon)
+    dato = resp.json()
+    print("------ Lista de pokemones por habilidad ---------")
+    for cont,i in enumerate(dato['pokemon'],start=1):
+        print(cont,"Pokemon: -> ",i['pokemon']['name'])
+    menu_back()
+
+#Opción 4: Listar pokemons por habitat.
+def listar_x_habitat():
+    print("Lista de algunos habitats de pokemones: ")
+    print("- cave\n- forest\n- sea\n- rare\n- mountain")
+    print("En total: 9 habitas de pokemones")
+    habitat = input("Ingresa la habitat del pokemon: ")
+    pokemon = f"https://pokeapi.co/api/v2/pokemon-habitat/{habitat}"
+    resp = requests.get(pokemon)
+    dato = resp.json()
+    print("------ Lista de pokemones por habitat ---------")
+    for cont,i in enumerate(dato['pokemon_species'],start=1):
+        print(cont,"Pokemon: -> ",i['name'])
+    menu_back()
+
+
+#Opción 5: Listar pokemons por tipo
+def listar_x_tipo():
+    print("Lista de algunos tipos de pokemones: ")
+    print("- normal\n- flying\n- fighting\n- electric\n- water")
+    print("En total: 20 tipos de pokemones")
+    tipo_pokemon = input("Ingresa el tipo de pokemon: ")
+    pokemon = f"https://pokeapi.co/api/v2/type/{tipo_pokemon}"
+    resp = requests.get(pokemon)
+    dato = resp.json()
+    print("------ Lista de pokemones por tipo ---------")
+    for cont,i in enumerate(dato['pokemon'],start=1):
+        print(cont," Pokemon: -> ",i['pokemon']['name'])
+    menu_back()
+
 
 class Pokemon:
     def __init__(self):
@@ -81,13 +154,13 @@ def menu():
             if opcion==1:
                 sistema.lista_por_generacion()
             elif opcion==2:
-                pass
+                listar_x_forma()
             elif opcion==3:
-                pass
+                listar_x_habilidad()
             elif opcion==4:
-                pass
+                listar_x_habitat()
             elif opcion==5:
-                pass
+                listar_x_tipo()
             elif opcion==6:
                 pass
             else:
