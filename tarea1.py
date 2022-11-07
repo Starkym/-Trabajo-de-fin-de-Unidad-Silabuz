@@ -317,7 +317,16 @@ def actualizar_libro():
     print("Se ha modificado el libro de ID " + id2 + " correctamente")
 
     repetir_opciones() 
-
+def buscar():    
+    buscar= int(input("INGRESE UN NUMERO REFERENTE A LOS AUTORES: "))
+    with open("Registros Libros.csv") as file:
+        lectura = csv.reader(file)
+    for  llave,cantidad in list(lectura.items()):
+        if cantidad == buscar:
+            print("EL LIBRO CONTIENE ",llave,"CONTIENE",cantidad,"AUTORES")        
+    
+    
+    repetir_opciones()
 def guardar_archivo():
     with open("Registros Libros.csv",'r') as ar:
         reader = csv.reader(ar)
@@ -382,7 +391,7 @@ def run():
     elif command == '7':
         buscarlibrosxautorxeditxgenero()
     elif command == '8':
-        pass
+        buscar()
     elif command == '9':
         actualizar_libro()
         #pass
