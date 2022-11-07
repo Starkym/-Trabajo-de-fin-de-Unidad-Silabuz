@@ -1,6 +1,0 @@
-ID, Título, Género, ISBN, Editorial, Autor(es)
-
-1,Vladimir,Alexander,Huaman ,Farfan,12E23
-2,Carlos,Perez,987654321,Alvela,Anonimo
-3,Maria,Eugenia,Sales,Jeje,Kcbl
-4,Marco,Sales,214214,Arro,Fuentes
